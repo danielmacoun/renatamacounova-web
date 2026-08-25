@@ -1,0 +1,10 @@
+
+*{box-sizing:border-box}
+body{margin:0;font-family:Arimo,sans-serif;color:#1D3142;background:#ECE8E1;-webkit-font-smoothing:antialiased}
+a{text-decoration:none;color:inherit}
+img{max-width:100%}
+button{font:inherit;cursor:pointer}
+.view[hidden]{display:none}
+ul,ol{list-style:none;margin:0;padding:0}
+li{margin:0}
+h1,h2,h3,p,figure,blockquote{margin:0}
