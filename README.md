@@ -15,8 +15,8 @@ Statický web. Kořenem publikovaného webu je tato složka (obsahuje `CNAME`). 
 5. V úryvcích aktualizujte navigaci `reading-related` pod textem: pokud existují jiné úryvky, vložte nadpis `<h2>Další úryvky</h2>` a seznam odkazů na ně (bez odkazu na právě otevřený úryvek). Pokud další úryvky nejsou, ponechte návratový odkaz na `/zamysleni/`.
 6. V lokálním náhledu ověřte odkaz ze seznamu, datum, mobilní zobrazení a návratové odkazy. Publikujte změněné soubory obvyklým nasazením webu.
 
-## Série a samostatné úryvky
+## Kniha a úryvky
 
-Blok `reading-series` je pouze oznámení připravované série „Denní naučení s Pěti Tibeťany“. Seznam `reading-list` je samostatná sekce „Úryvky ze třetí knihy“. Úryvek „Jak nastavujeme vlastní děti“ není kapitolou série. Budoucí kapitoly série nemíchejte automaticky se samostatnými úryvky.
+Blok `reading-series` ohlašuje knihu „Ne“cvičme s dětmi. Seznam `reading-list` s nadpisem „Úryvky z knihy „Ne“cvičme s dětmi“ obsahuje úryvky z této knihy. Ohlášení a seznam zůstávají vizuálně jako dva bloky pod sebou; úryvky se nečíslují. U každého úryvku zachovejte v JSON-LD `isPartOf` typu `Book` s názvem knihy. Navigace nadále používá název Zamyšlení.
 
 Datum 7. září 2026 označuje zveřejnění přesunutého textu na samostatné stránce Zamyšlení; původní sekce datum publikace neuváděla.
