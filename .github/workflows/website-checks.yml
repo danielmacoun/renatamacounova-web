@@ -32,3 +32,12 @@ jobs:
         run: python -m playwright install --with-deps chromium
       - name: Check desktop, mobile and JavaScript fallback
         run: python .github/checks/check_browser.py
+      - name: Check non-public CMS verification data
+        run: python .github/checks/check_cms_fixture.py
+      - name: Build Pages without publishing
+        uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1
+        with:
+          source: ./
+          destination: ./_site
+      - name: Verify CMS fixtures are excluded from public output
+        run: python .github/checks/check_cms_fixture.py _site
