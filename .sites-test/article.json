@@ -1,5 +1,5 @@
 {
   "title": "Test Zamyšlení – bez publikace",
   "body": "Neosobní testovací text. Produkční stránky se nemění.",
-  "force_failure": true
+  "force_failure": false
 }
