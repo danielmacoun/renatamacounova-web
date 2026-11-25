@@ -1,0 +1,26 @@
+# Test only. Site ID is a public identifier, never a token.
+backend:
+  name: turbo-github
+  turbo_site_id: REPLACE_WITH_TURBO_SITE_ID
+  branch: main
+publish_mode: editorial_workflow
+locale: cs
+media_folder: .cms-test/uploads
+public_folder: /.cms-test/uploads
+collections:
+  - name: cms-verification
+    label: Ověření CMS – neveřejný test
+    label_singular: Testovací záznam
+    folder: .cms-test/entries
+    extension: json
+    format: json
+    create: true
+    delete: false
+    slug: '{{slug}}'
+    fields:
+      - { name: title, label: Název testu, widget: string }
+      - { name: body, label: Testovací text bez osobních údajů, widget: text }
+      - name: force_failure
+        label: Záměrně zablokovat publikování – test povinné kontroly
+        widget: boolean
+        default: false

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Renata – bezpečný test CMS</title>
+</head>
+<body>
+  <p id="setup">Načítání testovací administrace…</p>
+  <script>window.CMS_MANUAL_INIT = true;</script>
+  <script src="https://cdn.jsdelivr.net/npm/decap-cms@3.17.1/dist/decap-cms.js"></script>
+  <script>
+    (async () => {
+      const message = document.getElementById('setup');
+      try {
+        if (!['localhost', '127.0.0.1'].includes(location.hostname)) {
+          throw new Error('Testovací administrace je povolena pouze lokálně.');
+        }
+        const response = await fetch('config.yml', { cache: 'no-store' });
+        if (!response.ok) throw new Error('Nelze načíst konfiguraci.');
+        const config = await response.text();
+        if (config.includes('REPLACE_WITH_TURBO_SITE_ID')) {
+          throw new Error('Chybí Site ID z Turbo. Nejdříve je doplníme v testovacím PR.');
+        }
+        if (!window.CMS) throw new Error('Nepodařilo se načíst Decap CMS.');
+        message.textContent = 'Test CMS: uložení vytváří koncept. Publikovat znamená sloučit PR do main; pokračujte jen s výslovným souhlasem Daniela pro konkrétní PR.';
+        window.CMS.init();
+      } catch (error) {
+        message.textContent = error.message;
+      }
+    })();
+  </script>
+</body>
+</html>
